@@ -13,7 +13,7 @@ app.listen(process.env.PORT, () => {
 })
 
 app.get('/', (req, res) => {
-    res.send({ message: "Bienvenue dans le serveur de by-ndeyaa" });
+    res.send({ message: "Bienvenue dans le serveur de tech-yonebi-back" });
 })
 
 app.post('/api/contact', (req, res) => {
