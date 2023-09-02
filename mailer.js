@@ -13,7 +13,7 @@ app.listen(process.env.PORT, () => {
 })
 
 app.get('/', (req, res) => {
-    res.send({ message: "Bienvenue dans le serveur de by-ndeyaa" });
+    res.send({ message: "Bienvenue dans le serveur de tech-yonebi-back" });
 })
 
 app.post('/api/contact', (req, res) => {
@@ -37,10 +37,10 @@ app.post('/api/contact', (req, res) => {
     // body of the mail
     var messageMail = `<strong>Nom:</strong> ${clientInformations.lastName}<br>
     <strong>Prenom</strong>: ${clientInformations.firstName}<br>
-    <strong>phoneNumber:</strong> ${clientInformations.phoneNumber} <br>
+    <strong>Numero de telephone:</strong> ${clientInformations.phoneNumber} <br>
     <strong>Email:</strong> ${clientInformations.emailAdress} <br>
     <strong>Interessé par:</strong> ${clientInformations.interestedIn}<br>
-    <strong>Durée estimée:</strong> ${clientInformations.projectTimeframe}<br><br><br>
+    <strong>Durée du projet estimée:</strong> ${clientInformations.projectTimeframe}<br><br><br>
     <strong>Détails:</strong> ${clientInformations.message}<br>`;
     
     // send the data by email 
