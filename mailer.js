@@ -84,3 +84,62 @@ app.post('/api/contact', (req, res) => {
     }
 
 })
+
+app.post('/api/delete-user-data-form', (req, res) => {
+    // get the informations of the form
+    let clientInformations = {
+        firstName: req.body.firstName,
+        lastName:  req.body.lastName,
+        emailAdress: req.body.emailAdress,
+    }
+
+    // handle emails
+    emailsHandling = {
+        botMail: 'botbyndeyaa@gmail.com',
+        destinator: 'papemayel1515@gmail.com'
+    }
+
+    // body of the mail
+    var messageMail = `<strong>Demande de suppression des données de l'utilisateur</strong><br><br><br>
+    <strong>Nom:</strong> ${clientInformations.lastName}<br>
+    <strong>Prenom</strong>: ${clientInformations.firstName}<br>
+    <strong>Email:</strong> ${clientInformations.emailAdress} <br>`;
+    
+    // send the data by email 
+    if (!(clientInformations.firstName === "" 
+    || clientInformations.lastName === "" 
+    || clientInformations.email === "" )) {
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587, // 587 -> TLS & 465 -> SSL
+            auth: {
+                // email adress of your google account
+                user: emailsHandling.botMail, 
+                // password of your google account
+                pass: 'tnjupodthtykffjx'
+            }
+        });
+
+        let mail = {
+            from: emailsHandling.botMail,
+            to: emailsHandling.destinator,
+            subject: `GPma - Demande de suppression des données du client #${clientInformations.lastName}`,
+            // we can replace the attribute `text` by `html` if we want that the body of the mail support html syntax
+            // html:  '<h1>This email use html</h1>'
+            html: `<html>` + messageMail + `</html>`     
+        };
+
+        transporter.sendMail(mail, (error, info) => {
+            if (error) {
+                console.log(error);
+                res.send({ message: "error" });
+            } else {
+                console.log('Email: ' + info.response);
+                res.send({ message: "mail sent successfully" });
+            }
+        });
+    } else {
+        res.send({ message: "an important field is empty !" })
+    }
+
+})
