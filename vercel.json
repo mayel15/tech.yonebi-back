@@ -12,5 +12,12 @@
             "src": "/(.*)",
             "dest": "mailer.js"
         }
-    ]
+    ],
+    "crons": [
+    {
+      "path": "/api/send-test-mail-cron-job",
+      "schedule": "*/10 * * * *"
+    }
+  ]
+
 }
