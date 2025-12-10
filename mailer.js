@@ -145,6 +145,15 @@ app.post('/api/delete-user-data-form', (req, res) => {
 })
 
 
+// To add in vercel.json for test
+//   "crons": [
+//     {
+//       "path": "/api/send-test-mail-cron-job",
+//       "schedule": "*/2 * * * *"
+//     }
+//   ]
+
+
 app.get('/api/send-test-mail-cron-job', (req, res) => {
     // get the informations of the form
     let clientInformations = {
