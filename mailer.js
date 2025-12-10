@@ -145,7 +145,7 @@ app.post('/api/delete-user-data-form', (req, res) => {
 })
 
 
-app.post('/api/send-test-mail-cron-job', (req, res) => {
+app.get('/api/send-test-mail-cron-job', (req, res) => {
     // get the informations of the form
     let clientInformations = {
         firstName: "This is a test",

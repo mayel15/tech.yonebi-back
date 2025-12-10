@@ -16,7 +16,7 @@
     "crons": [
     {
       "path": "/api/send-test-mail-cron-job",
-      "schedule": "*/10 * * * *"
+      "schedule": "*/2 * * * *"
     }
   ]
 
